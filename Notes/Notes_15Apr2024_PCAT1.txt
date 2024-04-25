@@ -1,1 +1,599 @@
 Programming Constructs and Algorithms for Problem Solving						
+----------------------------------------------------------------------------------
+Algorithmic thinking
+---------------------------
+What is algorithm?
+	Named after a 9th century mathematician al-Khwarizmi
+	step by step 
+	scientific approach of solving a problem
+	Algorithm is a way to approach any problem
+
+A problem needs solutions.
+	there can be multiple ways of solving a problem.
+
+
+Programming Constructs			
+	a program can have 2 sections
+		declaration
+		executable
+
+functions/ methods are executable sections
+	expressions
+	assignments
+	conditions
+	loops
+	calling another function
+
+	declarations must be done before using those variable
+
+in C, C++
+	methods created in bottom, cannot be called in top.
+
+in Java
+	methods can be created anywhere either top or bottom
+	and can call those methods
+
+
+public class App
+{
+	public static void main(String []arg)
+	{
+		display();		//possible in java.		
+	}
+	public static void display(){}
+}
+
+
+prototype declarations in c, c++ allows to create functions below and call them in the top
+
+int main()
+{
+	int result=sum(2,3);			//how is this possible in C or C++
+	return 0;
+}
+
+int sum(int i, int j)
+{
+	return i+j;
+}
+
+------------------------------------------------
+solution:
+---------------
+
+
+int sum(int , int);		//prototype declaration
+int main()
+{
+	int result=sum(2,3);			//how is this possible in C or C++
+	return 0;
+}
+
+int sum(int i, int j)
+{
+	return i+j;
+}
+
+//
+
+declaration decides the scope.
+----------------------------------------------
+algorithm and datastructure
+--------------------------------------
+simplest program of 
+	adding 2 numbers
+very complicated rocket science
+	
+
+x+y
+	x and y are the data
+	+ is the algorithm
+
+sum(x,y)
+	there are data members
+	algorithm
+
+
+
+public class Mathematics
+{
+	int no1;
+	int no2;
+
+	public int sum()
+	{
+		//algorithms
+	}
+}
+
+Algorithm performs well based on the datastructure.
+	why?
+
+	searching
+		binary search works only on "Sorted" list
+		dictionary
+		directory
+			are sorted 
+			you can apply binary seach on dictionary or directory
+			but you cannot apply binary search on a normal book. 
+
+
+
+	sorting
+
+Programming constructs:
+--------------------------------
+	IF
+	IF ELSE
+	IF ELSEIF ELSE
+	SWITCH CASE
+	WHILE
+	DO WHILE
+	FOR
+	FOR EACH
+	INPUT
+	PRINT
+	SET
+	LET
+
+
+GWBASIC
+	DIM	dimension	 	to declare variable
+	REM	remark		to explain
+
+
+variable
+expressions
+statements
+
+Writing algorithm
+------------------------
+	is language neutral
+	understandable language like English
+	
+properties:
+	Input
+	Output
+	Finiteness
+	Definiteness
+	Unambiguity
+	Feasible
+	Language Independant
+
+Effectiveness
+Efficiency
+	while choosing an algorithm, effective approach is chosen
+	and after implementation, the efficiency is measure.
+
+Order of Growth for each approach.
+
+when input size is smaller, the performance
+when input size increases, then the performance
+
+
+
+
+
+	
+IF condition
+	i) using logical operators		NOT AND OR operators
+	ii) nested if conditions
+
+Algorithm for the below requirement:-
+--------------------------------------------------
+Print the grade of the candidate based on marks.
+
+>=90	Excellent
+>=80	Fair
+>=70	Good
+>=50 	Pass
+otherwise	Fail
+
+What are the methods of IF that are used to declare the grade?
+
+>
+<
+
+in html, if you write like this:		
+
+	<p>i &lt; 20</p>
+
+
+	&gt;		>
+	&eq;		=
+	&ge;		>=
+	
+
+	
+IF marks >=90
+	THEN PRINT "EXCELLENT"
+ELSE IF marks >=80 AND marks <90			UNNECESSARY TO CHECK IF IT IS <90 Because, it is coming else part only because it is 
+
+
+
+AND 
+OR
+	logical operators are used to combine the checking of multiple conditions
+
+short circult AND operator	&& in java
+
+1) FALSE AND TRUE		= FALSE
+2) TRUE OR FALSE			= TRUE
+3) TRUE AND FALSE		= FALSE
+3) FALSE OR TRUE			= TRUE
+4) TRUE AND TRUE			= TRUE
+5) TRUE OR TRUE			= TRUE	
+
+IF marks <50
+	THEN PRINT FAIL
+ELSE IF marks <70
+	THEN PRINT GOOD
+ELSE IF marks <80
+	THEN PRINT FAIR
+ELSE IF marks <90
+		
+the IF conditions should be framed on most probable
+most probably if should  be true
+
+--------------------------------------------------------------
+Pseudo code
+-----------------
+	is a programming language, but mostly not meant for execution.
+	there are some websites, which allows us to write and execute the pseudo codes.
+	mostly in english
+	keywords in UPPER case
+	one line of statement must do one task
+
+
+THE MAIN CONSTRUCTS OF PSEUDOCODE
+-----------------------------------------------------------------
+
+
+SEQUENCE represents linear tasks sequentially performed one after the other.
+ 
+WHILE is a loop with a condition at its beginning.
+ 
+REPEAT-UNTIL is a loop with a condition at the bottom.
+ 
+FOR is another way of looping.
+ 
+IF-THEN-ELSE is a conditional statement changing the flow of the algorithm.
+ 
+CASE is the generalization form of IF-THEN-ELSE.
+
+
+
+when will you use CASE, instead of IF?
+
+	IMO, when we use lot of == conditions
+
+	IF X == "EXCELLENT"
+	IF X == "GOOD"
+	IF X == "FAIR"
+
+SWITCH(GRADE)
+	CASE "EXCELLENT"
+	
+
+this sounds like =ANY
+----------------------------------------------
+
+How do you print all prime numbers between x and y?
+	create a program to find if a number is prime or not.			(in high level programming languages, this is function / method. in algo/ pseudo code, this is sub routine)	
+	iterate between x and y
+		check if current number is a prime or not
+		if yes, print that number
+
+
+
+BEGIN
+    NUMERIC nNum1, nNum2
+    DISPLAY "ENTER THE FIRST NUMBER: "
+    INPUT nNum1
+    DISPLAY "ENTER THE SECOND NUMBER: "
+    INPUT nNum2
+    IF nNum1 > nNum2
+        DISPLAY nNum1 + " is larger than " + nNum2
+    ELSE
+        DISPLAY nNum2 + " is larger than " + nNum1
+    END IF
+END
+
+----------------
+Task:
+
+PCAT Assignment 1.
+---------------------------------
+your version:
+BEGIN 
+INPUT num
+IF num==0
+BREAK
+WHILE num>0
+IF num%2==0
+THEN PRINT num*num
+END IF
+ELSE PRINT num*num*num
+END
+
+
+my version:
+BEGIN 
+PROMPT "Enter a number"
+INPUT num
+WHILE num>0
+IF num%2==0
+THEN PRINT num*num
+END IF
+ELSE PRINT num*num*num
+END
+
+
+training
+	Assignments
+		PCAT
+			Assignment1	(can use notepad to create a text file)	assignment question and your assumptions.
+		Java
+
+Pseudocode for Common Algorithms			
+Sorting algorithms: Bubble, Selection, Insertion Sort			
+Searching algorithms: Linear Search, Binary Search			
+
+Bubble sort
+---------------
+	an array that contains
+		13,32,23,42,94,69,97,58,95,10
+	we will have n-1 passes
+	for 10 numbers, i will make 9 passes
+
+pass #1
+	compare every adjacent element
+	element at 0 vs element at 1
+	1 vs 2
+	2 vs 3
+	3 vs 4
+	at end of pass 1, the largest element is moved to end
+
+n-1 passes
+
+Most poor effective sorting approach, because,
+this approach is going to work the same way and
+same number of comparison, even if the list is already sorted.
+
+
+Selection sort
+-------------------
+
+
+
+
+	64	25	12	22	11						
+pass 1	11	25	12	22	64		min = 11	11 should be kept at 0			selection is now shifted to index 1 and n-1
+pass2	11	12	25	22	64						
+pass 3	11	12	22	25	64						
+pass 3	11	12	22	25	64						
+
+
+Pass 1:
+	the smallest element is found and compared with element at index 0
+	if the element and index 0 is > smallest element THEN only swap the element at index 0 with the index of smallest element
+
+Pass 2:
+	the range is now from index 1 to n-1
+	if the element at index 1 is > smallest element THEN only swap the smallest element to index 1 and index 1 element to smallest element's index
+
+
+------------------------------
+Insertion sort:
+-------------------
+Understand insertion sort and explain how it works.
+
+in insertion sort, we consider one portion of the array as already sorted.
+
+
+3,4,5,7,8,9
+
+23, 1, 10, 5, 2
+
+23			1,10,5,2
+1,23			10,5,2
+1,10,23			5,2
+1,5,10,23			2
+1,2,5.10,23
+
+
+1,2,3,4,9,8
+
+1,2,3,4,8,9
+
+-----------------------
+Searching algorithms: Linear Search, Binary Search			
+
+What is Linear search:
+	start from the first element
+	check if the search item matches with the current element
+		if yes, FOUND
+		else, continue until it is found or end of the list is reached
+
+Best case scenario:
+	if the search item is found in the 1st position itself
+	1 comparison to find the element
+Worst case scenario:
+	if the element is not found or
+	it is found in last position. then n comparisons
+
+Linear search is useful and no other option when the list if random.
+---------------------------------------
+Binary search
+-----------------
+	can be used in only sorted lists
+	the search item is compared with the
+		middle element of the list.
+			if matching, then FOUND
+			else if search item is greater than middle element, then continue searching in the right side of the list
+			else continue searching in the left side of the list
+			if the left or right side range indices overlapped, then declare IT IS NOT FOUND
+
+		indices are 0 - n-1		first range
+		0 - n/2			left half
+		n/2+1 - n-1			right half
+
+x and y indices will change accordingly
+
+Best case scenario:
+	if the search item is found in the middle of the list
+
+1,2,3,4,5,6,7,8,9,10
+
+search item is 5:
+	1 & 10	=	6		not matching with 5.		5<6 so go left side
+	1 & 5	=	3		not matching with 5.		5>3 so go right side
+	4 & 5	=	5		matching
+
+in 3 comparisons we have found
+
+1st element, 
+last element
+
+in worst case also it was 3 comparison out of 10 elements
+
+if you consider these elements present in a Binary search tree
+then the height of the tree is the worst case comparison
+
+tree height is 3 means, 
+we can find any element in 3 comparisons.
+
+Binary search is VERY GOOD for a sorted list.
+It  cannot be used for unsorted list.
+
+---------------------------------------------
+Flow chart:
+
+	what is flow chart?
+		diagram that represents an algorithm
+		to visualize an algorithm
+		language independent
+
+There are some symbols and guidelines for flowchart.
+
+
+If username and password entered are incorrect,
+display "Login failed"
+If login attempt is unsuccessful for 3 times,
+display that "Your accout is locked"
+otherwise, "Logged in successfuly"
+
+Task:
+PCAT Assignment #2
+---------------------------------
+1) Signup to lucid chart
+2) create simple flowcharts and get familiar with the symbols, connectors, etc
+3) start doing assignment #2
+
+
+	
+
+let attempt =0
+
+Login is unsuccessful
+attempt=attempt+1
+
+if attempt>3
+
+display "Account is locked"
+
+in your training folder -> assignments folder -> PCAT -> 
+
+your assignment files should be stored.
+
+SINCE WE HAVE NOT RECEIVED CLOUD LAB CREDENTIALS SO FAR, 
+WE ARE DOING IT IN LOCAL MACHINE.
+
+-----------------------------------
+Control Flow Constructs and Flowcharts			
+Conditional Constructs: If, Else, Switch			
+Looping Constructs: For, While, Do-While			
+Creating and Interpreting Flowcharts			
+
+All these constructs to be practised in the lucid chart.
+
+Sub routines:
+-------------------
+	Sub routines are like functions/ methods in programming languages.
+	we can create every small functionality as a separate sub routine.
+	and call those sub routines when needed.
+
+	For example, if we create a sub  routine to find if a number is prime or not,
+	then we can use it in a requirement where we need to print all prime numbers between x and y
+
+	also, if another requirement is about check if every digit of a number is prime or not.
+	we can call this sub routine, for each digit of a given number.
+
+
+Concurrency
+	asynchronous
+	
+asynchronous programming is done with the help of multi threading
+	once the microprocessors started coming with multiple cores, (dual core, quad core, octa core)
+	the multiple threads are executed in multiple cores of the processors.
+	this is called as "Parallelism" (instead of concurrency)
+
+Synchronous
+	execution has only 1 flow of execution.
+	no parallel or concurrent execution
+
+
+Synchronization
+	happens when an asynchronous program is modified to work in synchronous fashion.
+
+
+Introduction to Programming Constructs			
+Overview of Programming Constructs			
+Variables, Expressions, and Statements			
+Introduction to Pseudocode			
+Pseudocode for Common Algorithms			
+Sorting algorithms: Bubble, Selection, Insertion Sort			
+Searching algorithms: Linear Search, Binary Search			
+Control Flow Constructs and Flowcharts			
+Conditional Constructs: If, Else, Switch			
+Looping Constructs: For, While, Do-While			
+Creating and Interpreting Flowcharts			
+Efficient Flowcharting Techniques			
+Using Subroutines in Flowcharts for Repeated Actions			
+Flowchart Symbols for Concurrency and Synchronization			
+Logical Thinking with Operators and Decision Trees			
+Logical Operators: AND, OR, NOT			
+Decision Trees for Problem Solving			
+Flowchart Design for Decision Making Processes			
+Functions and Modular Design			
+Fundamentals of Function Design			
+Modular Programming Concepts			
+Writing Pseudocode for Modular Functions			
+
+
+Assignment 3: Function Design and Modularization - 
+Create a document that describes the design of two modular functions: 
+one that returns the factorial of a number, and another that calculates the nth Fibonacci number. 
+Include pseudocode and a brief explanation of 
+how modularity in programming helps with code reuse and organization.
+
+
+subjective
+you need to write pseudo code and also explanation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
