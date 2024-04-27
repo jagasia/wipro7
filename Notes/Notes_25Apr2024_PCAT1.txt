@@ -583,6 +583,21 @@ you need to write pseudo code and also explanation.
 
 
 
+You will receive an email about cloud lab
+that will contain
+	URL
+	username
+	password
+
+the password should be changed once you login.
+
+LET X=20
+DECLARE X AS NUMBER
+
+
+
+All assignments to be done in cloud lab.		(cloud lab credentials will be shared to you)
+From cloud lab only you can push to git lab.	(git lab credentials will be shared to you)
 
 
 

@@ -1,0 +1,332 @@
+Day #2:
+-----------
+Algorithms and Problem-Solving			
+
+Drawing flow charts using Lucid chart
+
+Assignments status
+
+Assignment 3 of Day1:
+----------------------------
+Assignment 3: Function Design and Modularization - 
+Create a document that describes the design of two modular functions: 
+one that returns the factorial of a number, and another that calculates the nth Fibonacci number. 
+Include pseudocode and a brief explanation of 
+how modularity in programming helps with code reuse and organization.
+
+int findFactorial(int number)
+{
+	if(number==0)
+		return 1;
+	return number * findFactorial(number-1);
+}
+
+5 factorial is 
+	5 * (5-1)!
+
+
+Recursion:
+---------------
+	What is recursion?
+		a function calling itself is an example for recursion.
+
+factoria
+fibonnaci
+	can be implemented using recursion.
+
+Now, without recursion, how can we implement them?
+
+Then, which is better approach?
+
+Recursion has high time complexity?
+
+in for loop also, i can implement factorial
+
+int result=1;
+for(int i=2;i<=5;i++)
+{
+	result*=i;
+}
+
+1*2*3*4*5
+
+1
+1
+5
+5
+---
+12
+
+the above for loop has a time complexity = 12
+
+in recursion also, same number of statements/ comparisons = 12
+
+both are same in terms of time complexity.
+
+Recursion is disadvantageous for some reason:
+-------------------------------------------------------------
+bad choice
+	space complexity is high in recursion.
+		how?
+
+
+in recursion:
+	fn1
+		fn1
+			fn1
+				fn1
+					fn1
+
+
+
+when the last fn1 is completed, it returns back to the previous fn1
+
+until then, all of these fn1 were in the stack.
+entire set of functions were pushed to the stack.
+
+
+memory vs storage
+
+recursion must be avoided as much as possible.
+
+factorial itself is very complicated
+	what is the factorial of 100?
+
+
+when we create binary search tree
+	how do you perform traversal?
+		traversal means, visiting every node of the tree once.
+
+in order traversal
+-----------------------
+	results in asc order
+	left
+	root
+	right
+
+pre order traversal
+-----------------------
+	root
+	left
+	right
+
+post order traversal
+-------------------------
+	left
+	right
+	root
+
+we do this recursively
+----------------------------
+but without recursion, we can traverse a binary search tree
+	if we modify the tree as
+		Threaded binary search tree
+
+---------------------------------------------------------------------------------
+algorithm may require the modification of data structure
+
+
+-----------------------
+Activity:
+-------------
+signup to lucid chart using some personal email address.
+login to lucid chart website
+
+create flowcharts
+--------------------------
+
+Draw a flow chart for Bubble sort algorithm
+-----------------------------------------------------------
+compare every adjacent elements and swap them if they are not in x<y order.
+e1 > e2 means, swap them
+
+in first round (pass), the largest value is moved to end
+n-1 pass
+
+0 and 1
+1 and 2
+2 and 3
+3 and 4
+
+
+n-1-1 vs n-1		as last comparison of 1st pass
+
+Try to draw a flow chart for Bubble sort algorithm. (30 mins)
+
+
+when do you swap 2 elements?
+	if first is > second
+
+so the condition should be 
+	arr[i]>arr[i+1]
+		swap
+
+
+if you check in reverse way
+	arr[i]<arr[i+1]
+		don't swap
+
+what is the code that you write to say do nothing?
+
+
+
+if(true)
+{}
+else
+{
+
+
+
+
+}
+
+Algorithm for insertion sort:
+-------------------------------------
+in a list which is already or almost sorted, this algorithm will be more effective.
+we split the list into 2 parts.
+	left side will be sorted list
+	and remaining in right side as unsorted
+
+
+45,12,35,8,44,25,90
+
+when nothing is found as sorted,
+left take first as left side
+
+45	12,35,8,44,25,90
+move one by one from unsorted list to sorted list
+
+45>12	needs a swap
+
+12,45	35,8,44,25,90
+
+
+sort 12,45,35
+
+12,35,45	8,44,25,90
+
+
+sort 12,35,45,8
+
+8,12,35,45		44,25,90
+
+
+Activity:
+Understand insertion sort and identify a flow chart for the same.
+--------------------------------------------------------------------------------------
+Activity:
+Next, we should draw a flow chart for insertion sort in lucid chart.
+
+
+feedback link:
+	https://survey.zohopublic.com/zs/1ED49T
+
+
+fastest sorting algorithm?
+--------------------------------
+	in terms of time complexity
+		Merge sort
+
+
+Searching algorithms:
+-----------------------------
+	1) Linear search
+	2) Binary search
+	3) Hashing
+
+Hashing
+-----------
+	hashing function accepts the key and produces a hash value
+	hashing is a process of finding the location of an element based on key and a formula.
+
+	suppose, we have 10 employees
+
+employee
+	id
+	name
+	designation
+	department
+	salary
+
+use hashing function that takes id as argument
+	and produce hash value
+
+based on hashvalue, we arrange the employees
+
+hashFunction(id)
+
+formula is our own choice.
+	
+if exam hall has only 10 seats
+and there are only 4 halls
+
+we can accommodate, 40 people
+
+modulo by 4, you will get hall number	0 / 1/ 2/ 3
+modulo by 10, you will get the seat number		0-9 possible
+
+
+
+4 halls
+10 seats in each
+
+id is in the range of 1 to 40
+
+35 % 4	=	3		4th hall	index 3
+35%10	=	5		6th seat	index 5
+
+
+39%4	=	3		4th hall	index 3
+39%10	=	9		10th seat	index 9
+
+
+
+in rare scenario, if 2 employee ids produce exactly same
+	hall number and
+	seat number
+
+we call it as collision
+
+COLLISION
+
+Techniques to address the collision issue:
+	re hashing
+	coalesed chaining
+	chaining
+	bucket hashing
+
+Fastest searching algorithm.
+
+algorithm
+flowchart
+pseudo code
+	searching
+	sorting
+
+
+PCAT day 1
+	3 assignments
+PCAT day 2
+	1 assignment
+---------------deadline for completing the above assignments is TODAY--------------------------
+if you can learn git little bit.
+
+git
+	is version control tool
+	version control means, when multiple users share the code,
+		we can see your version of the code, then switch to my version of the code and merge them if required.
+
+	we use git, to keep our folder in our computer sync with a folder in git
+
+
+
+
+
+
+
+
+
+
+
+
+
