@@ -318,15 +318,179 @@ git
 
 	we use git, to keep our folder in our computer sync with a folder in git
 
+our local system folder is called as "Local Repository"
+and the git hub folder is called as "Remote Repository"
+
+from local to remote:		push
+from remote to local:		pull
+
+by pushing the files and folders to remote repository,
+we are able to allow others to view our files.
+
+Which folder do you choose to sync with remote repository.
+	this folder should not be part of another git 
+
+d:\jag	(entire jag folder is pushed to git means,
+	any of the sub folders, cannot be part of another git)
+
+d:\jag\wipro		this cannot be part of a different git repository.
+
+we will use GitLab (not git hub)
+
+GitLab URL, username, password will be shared to you by email		(this will not work outside cloud lab)
+
+
+URL uses ip address (instead of GitLab.com)
+
+------------------------------------
+Pending:
+	Cloud lab URL and credentials	
+	GitLab URL and credentials
 
 
 
 
 
+1) Algorithm for Bubble sort
+2) Flow chart for Bubble sort
+3) Brief explanation of the algorithm and flow chart
+
+
+set i as 0
+temp=arr[1]
+
+label1:
+if searchItem==temp && if i<length of the array
+	true:	Found and exit 
+	false:
+		temp=arr[i+1]
+
+	goto label1
+
+if i==length of the array
+	NOT FOUND
+
+Activity:
+	1) Draw flowchar for linear search
+
+in case, if you have pending in Day 3 assignments, then DO complete that now. You can unmute and ask suggestions and anybody can suggest.
+
+
+Lets take stock of assignments:
+
+---------------------------
+Activity:
+------------
+Write the algorithm for binary search.
+Translate it to Flow chart
+
+only for a list of sorted elements
+
+process starts from finding the middle element and check if it matches with the searchItem
+yes, then FOUND
+no, then decide left half or right half to continue searching.
+Repeat finding the middle ....
+
+
+left = 0
+right = n-1
+mid = (right+left)/2
+
+if searchItem == arr[mid]
+	found
+else
+	searchItem>arr[mid]
+		//move right
+	left = mid+1
+	
+mid = (righ+left)/2
+
+	if searchItem<arr[mid]
+		//move left
+
+	right=mid-1
+
+mid = (right+left)/2
+
+---------------
+O as Order of Growth
+When the input size changes, accordingly the complexities of the algorithm also changes
+
+O(N)		linear	
+O(N^2)		quadratic 
+O(Log N)		logrithmic
+O(N3)		cubic
+
+
+https://www.geeksforgeeks.org/analysis-algorithms-big-o-analysis/
+
+Introduction to Trees, Graphs, and Hash Tables
+-------------------------------------------------------------------
+Trees
+	identify the types of trees in datastructures
+
+Graph
+	what is Graph in datastructures?
+
+	Vertices
+	Edges
+
+
+you can assume vertices as cities
+and the route between vertices can be edges
+
+route	/	distance	/	time taken to travel
+
+input for vertex
+input for edge
+	source and destination	(directed)			one way
+	vertex1 and vertex2		(undirected)		both ways
+	
+
+How do we find, the shortest distance between 2 vertices?
+	list all possible routes to reach from  a vertex to another vertex
+	each route have a total distance
+	find the shortest distance route.
 
 
 
+How do you represent this graph in datastructure?
+	arrays?
+there will be vertices array
+there will be edges array
 
+you have to check if there is an edge between 2 vertices
+if yes, the value can be the weightage
+
+Finding shortest distance between 2 vertices.
+
+
+vertices[10]
+0
+1
+2
+
+
+9
+
+between vertex 0 and 1 we need an edge.
+
+edge[][]
+
+edge[0][1]=8;		//makes a route between 0 and 1
+
+show all edges:
+		0 1 2 3 4 5 6
+	0 	0
+	1  	   0
+	2 	      0
+	3
+	4
+	5
+	6
+
+
+Totally 4 assignments to be completed before Monday session.
 
 
 
