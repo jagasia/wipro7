@@ -115,8 +115,267 @@ Activity:
 
 
 
+While hashing,
+	you get a value based on key
+
+if that value (location) if already is occupied by another key,
+
+means, 2 keys have same hashvalue (this is called collision)
+	i) re hashing
+		the hashvalue mod 4 (for ex)
 
 
+
+
+truncation
+mid square
+modulo
+division
+-----------------
+Merge sort
+Quick sort
+Heap sort
+
+
+Merge sort
+--------------
+	divide and conquer approach
+	divide the large list into sub lists and sort them and then merge them
+
+Quick sort
+-------------
+	Pivot
+	choose an element in the list as a pivot
+		how to choose pivot??????
+			if you choose an element as pivot, then it should be in such a way that
+				all elements left side of pivot must be smaller than the pivot
+				all elements right side of pivot must be greater than the pivot
+
+	78,67,45,90,96,120,110,100,97
+
+can you choose an element as pivot???????
+		96 is the pivot because, 	all elements left of 96 are smaller than 96
+					all elements right of 96 are greater than 96
+
+78,67,45,90		sort this smaller list		45,67,78,90
+96
+120,110,100,97		sort this smaller list		97,100,110,120
+
+
+45,67,78,90,96,97,100,110,120
+	it is sorted now
+
+in the above example, naturally, it happened to be smaller in left of 96 and greater in right of 96
+
+But we cannot expect this everytime.
+
+so, we can choose any pivot and move the smaller elements to left of pivot
+and move greater elements of pivot to right
+
+
+21,52,3,42,5,26,97,82,9,10
+
+21,3,5,26,9,10
+42
+52,97,82
+
+
+3,5,9,10,21,26
+42
+52,82,97
+
+--------------------------------------
+Heap sort
+------------
+
+4, 10, 3, 5, 1
+
+		4
+	3		10
+          1		         5
+
+
+
+1,3,4,5,10
+
+
+Binary search tree:
+-----------------------
+	every root node can have left or right or both
+		left is always smaller than root and 
+		right is always greater than root
+
+
+if you add the following numbers to a binary search tree
+
+	1
+		2
+			3
+				4
+					5
+						6
+
+
+this is similar to a linear data structure (linkedlist)
+the advantage of binary search tree is missing in this way.
+
+rotate the tree in such a way, the height of the tree is minimum as possible.
+
+n nodes in a tree, the height of the tree can be maximum how much
+
+Assignments totally 5		(day 1: 1,2,3 and remaining 2)
+--------------------------------------------------------------------
+update in chat, once, 4 / 5 assignments completed
+--------------------------------------------
+
+Your assignment files must be present inside your assignments folder.
+
+
+WORD (MS Office) is not installed in cloud lab
+
+take images from your doc and save them as separate jpg file
+and explanation as separate txt file
+----------------------------------------------------
+After lunch, I will give you steps to follow for GIT
+---------------------------------------------------------------------
+
+GitLab credentials are shared to you in email:
+	http://10.10.16.125:8929
+
+username:	abcdefg
+email:	abcdefg@rpsconsulting.in
+password:	<<password>>
+
+
+
+
+
+	
+
+http://10.10.16.125:8929
+	this GitLab URL works ONLY in the cloud lab.
+	it will not work in your local system
+
+only in cloud lab, you can open a browser and type:
+	http://10.10.16.125:8929
+
+--------------------------
+All of you (in cloud lab), Open a browser and enter the gitlab URL
+	login using GIT credentials and
+		change the password
+
+
+-------------------------
+GIT LAB STEPS:
+----------------------
+1) in cloud lab (only) these steps to be done.
+2) in cloud lab, open a browser and login to 
+	http://10.10.16.125:8929
+		the credentials are given to you by email
+		use the same username b7userXX
+		enter the password you created recently
+----------------You have now logged into official GIT LAB------------------
+1) create a project
+	i) create blank project
+		name: assignment_jag
+		project url:		http://10.10.16.125:8929/b7user01/		assignment_jag
+
+
+	ii) Visibility level
+		Public
+
+	iii) Project configuration
+		UNTICK 	"initialize repository with README
+
+-----------------------------
+Now that we have created a project in git lab,
+	this project will be the remote repository for our assignments folder
+
+
+in cmd:	c:\users\administrator\training\assignments
+
+git init
+git remote add origin http://10.10.16.125:8929/b76userXX/assignment_YOURNAME.git
+git add .
+git commit -m "first"
+git push origin master
+
+
+when you push it will ask you
+	username:	b76userXX
+	password:	<< remember it will not show anything while you type. so if you type and user delete backspace >>
+
+enter password clearly.
+you have already changed your password. that password
+
+FIRST TIME :-
+
+git config --global user.name <<username>>
+git config --global user.email <<email>>
+
+git init
+git remote add origin http://10.10.16.125:8929/<<username>>/<<projectname>>.git
+git add .
+git commit -m "first"
+git push origin master
+
+-----------------
+Whenever you do some changes or you add files/ folders into assignment, you want to push these changes to gitlab.
+you do ONLY the following henceforth:-
+
+git add .
+git commit -m "29Apr 15:21"
+git push origin master
+
+-----------------------------------------
+
+Can any one explain the compilation process of Java (how it differs from c/ c++)
+	the compilation process in java is different from c and c++
+
+in java, the compilation happens in 2 stages.
+
+in c or c++, the source code is compiled to get machine language code.
+the machine language itself is different from processors to processors. OS is also 16 bit 32 bit 64 bit like lot of differences.
+
+if i compile a c program in a 32 bit machine, then i cannot run it in 64 bit machine
+also, c language itself slightly different in different platform
+
+Turbo C
+	conio.h	
+this library is not found in gcc 
+
+
+Java runs in 
+	Linux
+	MacOs
+	Windows
+
+platform independent
+
+
+in  case of Java,
+	java compiler DOES NOT translate java code into machine language code.
+	java compiler translates java code into byte code. (this byte code cannot run in any platform directly)
+
+	java virtual machine (contain java runtime environment)
+	jre when it executes byte code, it FURTHER translates byte code into machine code
+		this is done by JIT compiler
+
+Just In Time compiler
+
+JDK vs JRE
+
+JDK 
+	is for developers
+	is to compile and execute
+JRE
+	is to run (execute)
+	does not have a compiler
+
+--------------------------------------------------
+Final activity for PCAT:
+All 5 assignments must be in cloud lab.
+All of them are pushed to git lab.
 
 
 

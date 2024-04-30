@@ -1,0 +1,311 @@
+Hello all, I'm from RPS support team. Any issues with the session please ping in the chat box or drop a mail to ngasupport@rpsconsulting.in
+
+Day #4:
+Java day 1:
+-------------------
+1.0	Java Fundamentals
+1.1	Java Environment Setup
+	Installing JDK
+	Configuring IDEs (Eclipse, IntelliJ IDEA)
+1.2	Java Syntax and Basic Constructs
+	Primitive Data Types and Variables
+	Operators and their Precedence
+	Control Flow Statements (if, switch, loops - for, while, do-while)
+--------------------------------------------
+Java
+	history of java, how they named java (sun microsystems and later this was adopted by Oracle corporation)
+	every new syntax has a ref number JSR
+
+we have cloud lab and 
+	Java 11 is installed there
+	Eclipse is available 
+
+Create our first java project in eclipse ( in cloud lab )
+	eclipse asked me to choose the directory for workspace.	
+	I have choosen c:\users\Administrator\training\java folder so that all my projects i create will be stored there.
+	in eclipse
+		File -> New -> Project
+			among lot of project types, i will choose "Java Project"
+	type project name
+	check the java SE version		it was 17. I changed it to 11	(because, in my system java 11 only is installed)
+
+A java project created in eclipse has lot of folders
+	src
+	bin
+
+src 
+	folder contains all the source code 		.java files
+bin
+	folder contains all the compiled code		.class files
+
+
+
+Hello world program in java (using eclipse)
+
+	right click the project
+		New -> Class
+
+	name of the class : 
+		App
+	tick the public static void main check box and click finish button
+
+
+
+public class App
+{
+	public static void main(String []args)
+	{
+		System.out.println("Hello world");
+	}
+}
+
+
+ctrl+space
+	is used to auto complete the code
+
+To RUN the program:
+	open the program and press
+		ctrl+F11 
+
+ctrl+F11
+click the green arrow to run
+right click code 
+	run as -> Java Application
+
+
+
+Window 
+	show view
+		package explorer
+		console
+---------------------------------------------------------
+class name
+	must follow PascalCase
+	must start with UPPER case
+	ex:
+		App
+		Employee
+		Main
+		ContractEmployee
+
+
+method name
+	must follow camelCase
+		first letter is in LOWER case. Every next word first letter in UPPER case
+	ex:
+		acceptDetails
+		calculateSimpleInterest
+
+variable/ object name
+	must follow camelCase
+		first letter is in LOWER case. Every next word first letter in UPPER case
+	ex:
+		int x;
+		float averageScore;		
+
+variable names must be meaningful (except the local variables and for loop index variables)
+	ex:
+		count
+		maxCount
+		isFirst
+	
+indentation to understand the blocks properly
+public class App
+{
+	public static void main(String []args)
+	{
+		System.out.println("Hello world");
+	}
+}
+
+
+write comments to understand the code
+Primitive Data Types and Variables
+-----------------------------------------------
+List out all the primitive data types in java language and
+paste it as single message in chat window
+
+in java language, there are only 8 primitive data types.
+	boolean
+	byte
+	short
+	int
+	long
+	float
+	double
+	char
+
+boolean		true/false		1 bit
+	in c, c++ language,
+	---------------------
+	if(i=0)		//this is ok in c, c++ but NOT ALLOWED in Java
+	{
+		printf("Yes");
+	}
+	else
+	{
+		printf("No");
+	}
+
+
+
+
+
+
+i=0	is not a boolean expresssion		it does not return true/false
+i==0	is a boolean expression
+
+in C, C++
+	0 is called as false 
+	any non 0 is called as true
+	-1 is true		1 is true		any number other than 0 is true
+
+but in java, it is not like that
+	i==0	
+
+0000 0000			lowest value in 1 byte representation
+1111 1111			highest value in 1 byte representation
+
+			256/2	=	128
+
+between these 2, there can be 256 possible values
+
+
+boolean		1 bit		true/false
+byte		1 byte		-128 to 127
+short		2 bytes		-32768 to 32767
+int		4 bytes		-2147483648 to 2147483647
+long 		8 bytes
+float		4 bytes
+double		8 bytes
+char		2 bytes
+
+imagine if you have use "int" datatype for the account balance in banking project?
+	the customer already have 2147482648 in their account,
+	now, they deposit 1001 rupees and their account balance will become -2147483648
+	will you accept this?????
+
+
+every character has a numeric representation ASCII
+what is the ASCII value for 0		48
+		A		65
+		a		97
+
+ASCII is an 8 bit representation so this ASCII character set is having only 256 characters
+
+Unicode is a 16 bit representation of characters.
+Java use unicode hence every character is represented in 16 bit	2 bytes
+
+variable and constants:
+-----------------------------
+	int x=20;
+	x=30;
+	x=10;
+
+		i am able to change the value of a variable.
+
+	final int x=20;
+	x=30;	/NOT allowed because, final is used to declare constants
+
+Variables can be 2 types:
+	value type variables
+	reference type variables
+
+value type variables:
+	If you create a variable of any of those 8 primitive data types,
+	they are value type variables.
+
+reference type variables:
+	If you create a variable of any type other than those 8 primitive types, 
+	they are reference type variables.
+	ex:
+		String str;
+		Date dt;
+		Employee e;
+			these are reference type variables.
+
+Value type?
+	if you go and see what is stored in a variable?
+		if you find value inside the memory then it is value type
+		if you find reference to a heap then it is ref type
+
+
+Objects are stored in heap
+
+Stack vs Heap 
+	memory structures in java
+
+Activity:
+	Understand the difference between
+		value types
+		reference types
+	Stack
+	Heap
+-------------------------------------------
+Stack and heap are memory structures.
+What is stored in stack and what is stored in heap?
+	if you declare a variable inside a method (function) then it is created in Stack only.
+	Objects are always created in Heap.
+
+	
+	public static void main(Strng args[])
+	{
+		Date dt;		//dt is created in stack
+		new Date();	//an object is created in heap
+		//the reference of object (heap) is not stored in stack. So this dt (locker) does not have anything. null
+		//here dt = null
+
+	}
+
+
+
+
+	public static void main(Strng args[])
+	{
+		Date dt=new Date();	
+	}
+
+new Date() is an object in heap.		Its reference is kept in stack (dt)
+
+dt is a variable in stack
+new Date() is an object in heap.
+--------------------------------------------------
+-----------------------------------------------------
+
+Date dt1;			//if you open this locker, nothing is found. 	so dt1 = null
+Date dt2=new Date();		//if you open this locker dt2, you find the key of a room heap
+
+dt1=dt2;			//you have 2 keys for one heap memory 	new Date
+			//one key is kept in dt2 and another key is kept in dt1		
+
+In the above example, we have created one object and its reference is stored in 2 stack variable.
+
+2 variables, 1 object
+
+Date dt3;			//dt3 is not an object of Date.	It is a reference variable, which can hold ref of an object
+
+Only when we use "new" operator, we are creating an object.
+
+
+int i=20;			//int is a primitive data type. so if you open the locker "i", you find value (20). not reference
+
+
+class Employee
+{
+	int id;		//even though id is a primitive type variable, it is not created in stack. 
+			//an object of Employee is created in heap only. Now, we have not created any object.
+			//this class is a type definition. 
+
+
+	public static void main(String []args)
+	{
+		Employee raja=new Employee();		//only now, an object of Employee is created in heap and
+						//its reference is kept in raja variable in stack
+	}
+
+}
+
+
+
+
+
