@@ -305,6 +305,138 @@ class Employee
 
 }
 
+---------------
+Operators:
+-------------
+arithmetic operators
+	+	-	*	/	%
+bitwise operators
+	&	|	!
+logical operators
+	!	&&	||
+Comparison operators
+	>	<	>=	<=	!=
+Shift operators
+	>>	<<	>>>
+Ternary operator
+	?:
+Increment
+	++	--
+Assignment
+	=	+=	-=	*=	/=	%=
+
+brackets are always allowed to clarify or change the precedence
+
+BODMAS		B for Bracket
+
+(x+y)*z	is different from 	x+y*z
+
+- negative + positive
+
+
+Operators are overloaded already, WE CANNOT DO OPERATOR OVERLOADING in Java
+
+	x+y		what will happen?
+
+
+if(i<j &&i<k)
+
+
+if(i<j)
+{
+	if(i<k)
+	{
+		//i is the smallest
+	}
+}
+
+
+if condition using logical && or || operator
+nested if condition
+
+How to get input from the user?
+	Scanner 
+	or
+	Command line argument
+
+How to get command line arguments from user (in eclipse)
+	the main method has arguments (that is the command line arguments)
+1) in eclipse
+	Run -> Run Configurations
+
+		arguments tab
+			Program Arguments
+				10 20 30 40 50
+
+
+enter your arguments using any separator	space or tab
+dont use comma at all
+-------------------------------
+Scanner
+	how to get input from the user?
+
+	import java.util.Scanner;
+
+	Scanner sc=new Scanner(System.in);
+	
+Scanner class has
+	lot of methods
+		next();
+		nextInt();
+		nextFloat();
+		nextLong();
+	
+for all primitive type (except char data type), scanner provides a method to get input of that type
+
+only when you want to get char input from user?
+	sc.next().charAt(0);		//next() method returns a String. string provide method charAt(index)
+				//since only 1 char input, its index is always 0
+
+from all these next methods, ONE method differs
+	nextLine()		this is the only method that is used to accept String input until a newline is found
+
+all other next methods accept any delimiter
+
+input:
+	2 3		this is 2 input
+	2	3	this is 2 input
+	
+all next methods accept input until any delimiter is found
+	space
+	tab
+	newline
+
+so how can i get input like multiple words
+	ram kumar		is actually 2 words
+
+
+	sc.next() 		captures only "ram" 		and "kumar" is captured by another next method
+
+	if i want to capture "ram kumar" as a single input
+	i should use 	
+		sc.nextLine();
+
+
+But this nextLine() will create trouble when you combine using with other next methods
+
+
+Challenge:
+---------------
+get the following inputs and store them in
+	int i;
+	String name;
+	float f;
+
+input:
+	120
+	Ram Kumar
+	1.2
+
+remember "Ram Kumar" must be stored in name variable.
+
+
+
+
 
 
 
