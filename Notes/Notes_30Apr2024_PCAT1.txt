@@ -432,7 +432,342 @@ input:
 	Ram Kumar
 	1.2
 
+output:
+	120
+	Ram Kumar
+	1.2
+
 remember "Ram Kumar" must be stored in name variable.
+
+
+Problem:
+	whenever you use sc.nextLine() after any other next methods, you get this problem java.util.InputMismatchException
+
+how to solve this problem?
+	i) whenever you want to use sc.nextLine() method, you can use a different scanner object
+		means, a separate scanner object like sc1
+	ii) or check if the input is blank and get nextLine() again
+
+
+Task:
+-------
+Dice Game I
+
+Each player will be allowed to throw  a dice 2 times. The points for each player will be calculated as follows :
+If the values thrown are different, the points scored is equal to the sum of the 2 values.
+If the values thrown are the same, the points scored is equal to double the sum of the 2 values.
+
+Write a program to calculate the points scored by a player.
+
+Input and Output Format:
+
+Input consists of 2 integers. The valid range of inputs is from 0 to 6. [ Both 0 and 6 inclusive]
+Output the points scored. In case of invalid inputs, print “Invalid Input”.
+
+Refer sample input and output for formatting specificaions.
+
+[All text in bold corresponds to input and the rest corresponds to output.]
+Sample Input and Output 1:
+
+Enter Value 1:
+5
+Enter Value 2:
+6
+The points scored is 11
+
+Sample Input and Output 2:
+
+Enter Value 1:
+5
+Enter Value 2:
+5
+The points scored is  20
+
+Sample Input and Output 3:
+
+Enter Value 1:
+8
+Enter Value 2:
+6
+Invalid Input 
+
+--------------------------------------------
+Dice Game II
+Each player will be allowed to throw a dice 2 times. The points for each player will be calculated as follows :
+The points scored is the absolute difference between 8 and the sum of the 2 values, provided the sum of the 2 values is less than 8.
+In all other cases, the point  scored is double the absolute difference between 8 and the sum of the 2 values.
+
+Write a program to calculate the points scored by a player.
+
+Input and Output Format:
+Input consists of 2 integers. The valid range of inputs is from 0 to 6.
+Output the points scored. In case of invalid inputs, print “Invalid Input”.
+
+Refer sample input and output for formatting specificaions.
+
+[All text in bold corresponds to input and the rest corresponds to output.]
+Sample Input and Output 1:
+
+Enter Value 1:
+5
+Enter Value 2:
+6
+The points scored is 6
+
+Sample Input and Output 2:
+
+Enter Value 1:
+3
+Enter Value 2:
+2
+The points scored is  3
+
+Sample Input and Output 3:
+
+Enter Value 1:
+8
+Enter Value 2:
+6
+Invalid Input 
+
+
+--------------------
+
+if(true)
+{
+}else if(true)
+{
+}else if(another condition)
+{
+}else
+{
+}
+
+-----------------------------------------
+Arrays in Java
+--------------------
+in C, C++ arrays are created like:
+	int arr[10];
+but Java, the above is syntactically wrong.
+
+in Java, same is:
+	int arr[]=new int[10];
+(or)
+	int []arr=new int[10];
+
+while declaration, it can be 
+	int []arr;
+	int arr[];
+
+both above are declaration.
+
+but until we specify the size of the array, it is not created.
+"new" operator is used to create an array.
+
+Sometimes, we can initialize the values to the array while creating
+in that case, the size of the array is equal to the number of elements initialized to the array.
+
+int arr[]=new int[6];
+or
+int arr[]={88,22,33,11,66,44,55};		//this will also created an array
+
+in Java, arrays are Jagged.
+Jagged means uneven.
+
+int arr[][]=new int[10][];		//you can consider this as 10 rows and each row can have columns of different length
+
+arr[0]		is the first row
+arr[0]=new int[8];	//first row have 8 columns
+arr[1]=new int[10];	//second row has 10 columns
+
+like wise, every row can have different number of columns
+that is called as Jagged.
+
+if you want to evenly created array
+	int arr[][]=new int[10][10];	//
+
+
+int i;			//i is a variable whose value can be int data type
+i=20;			//we assign a value to i
+Date dt;			//dt is a variable, which is not usable untile you assign an object of Date
+dt=new Date();		//we assign a reference to dt
+
+Date dt2=dt;		//reference of dt is assigned to dt2.
+
+primitives are only value types
+all other types are reference types
+
+data type	(primitive data type)
+type
+	Date is a type
+	String is a type
+
+
+Array is a reference type
+	int arr[];			//int is a primitive data type
+
+				//but array is a reference type
+
+an array allows us to maintain multiple values under same name
+but multiple values cannot be stored in one memory location		(locker)
+
+Arrays are stored in multiple locations, but its first element's reference is kept in the array name
+
+	arr	is the reference to the first element of the array
+
+
+Operations on array:
+	sort an array
+	reverse an array
+	traverse an array		(display all element)
+	
+
+How can we display all elements of an array?
+	i) for-each loop
+	ii) normal for loop
+	
+Practise creating a single dimensional array
+and then 2 dimensional
+
+int arr[][]=new int[10][10];
+
+for(int  row=0;i<arr.length;row++)
+{
+	for(int col=0;col<arr[i].length;col++)
+	{
+		//arr[row][col]=sc.nextInt();
+	}
+}
+
+for(int  row=0;i<arr.length;row++)
+{
+	for(int col=0;col<arr[i].length;col++)
+	{
+		System.out.println(arr[row][col]);
+	}
+}
+
+Task:
+-------
+Array Product
+
+Write a program to find the product of all 2 digit numbers in an array.
+
+If the size of the input array is negative or if any of the input elements is negative , print “Invalid Input” and terminate the program.
+
+Input and Output Format:
+
+Input consists of n+1 integers. The first integer corresponds to n, the number of elements in the array. The next 'n' integers correspond to the elements in the array.
+Output consists of an integer that corresponds to the product.
+
+Refer sample output for formatting specifications.
+Assume that the maximum number of elements in the array is 20.
+
+Sample Input 1:
+6
+2
+7
+10
+3
+13
+100
+
+Sample Output 1:
+130
+
+Sample Input 2:
+-4
+
+Sample Output 2:
+Invalid Input
+
+Sample Input 3:
+4
+1
+-2
+
+Sample Output 3:
+Invalid Input 
+
+-------------------------------------------------------------------
+Task:
+-------
+Percentage of Runs
+Sam is a cricket freak, who loves to collect statistics about the matches. Suppose, a batsman scored X runs which included Y fours and Z sixes, Sam wants to calculate the  percentage of the total score he made by running between the wickets.
+Write a program to help Sam .
+Input Format:
+First input is an integer X that denotes the total runs scored.
+Second input is an integer Y that denotes the  number of fours he has scored.
+Third input is an integer Z that denotes the  number of sixes he has scored.
+[Note: Assume all inputs are valid.] 
+Output Format:
+Output is a double value that denotes the percentage of runs he made by running between the wickets(rounded off to 2 decimal places).
+Sample Input 1:
+110
+3
+8
+Sample Output 1:
+45.45
+Sample Input 2:
+60
+2
+1
+Sample Output 2:
+76.66
+
+Explanation for sample 1:
+Total Runs = 110
+No. of Fours = 3
+No. of sixes = 8
+Total runs scored by boundaries = 4*3 + 8*6 = 60
+Therefore, runs scored by running between the wickets = 110 - 60 = 50
+Percentage scored by running =(50/110)*100 =  45.45 
+
+
+
+Math.round(45.4545)	=	45
+Math.round(45.5454)	=	46
+
+round, floor, ceiling methods return int only
+	not 2 digits or 3 digits choice we have
+
+so, better, if you multiply the number by 100 and then do round/ceil/floor then we can again divide it to get 2 digit precision
+
+------------------------------------------------
+Maximum Product
+Playing with arrays has become a hobby for Arun. This time Arun wants to find the greatest number in the array such that it is the product of any two numbers in the array.
+Write a program to help Arun to the do the task. If no such number exists, then print -1.
+[Note: The two number that are used to find the product can be the number itself.  For example, if the array elements are [1,2,3] , then 1*3 = 3 will be the solution for this array.]
+
+Input Format :
+First input is an integer value that denotes the size of the array.
+Second input is a series of integers separated by space that denotes the array values.
+
+Output Format :
+Output is an  integer that denotes the maximum product.
+
+Sample Input 1:
+5
+35 30 7 6 5
+Sample Output 1:
+35
+
+Sample Input 2:
+5
+2 4 6 89 78
+Sample Output 2:
+-1
+
+
+
+
+
+
+
+
+
+
+
 
 
 
