@@ -757,19 +757,109 @@ Sample Input 2:
 2 4 6 89 78
 Sample Output 2:
 -1
+------------------------------------------------
 
 
 
 
+----------------------------
+Suppose, how do you find the maximum number of an array?
+	Consider without sorting an array
+
+	keep a global variable "max" and keep it as lowest value initially.
+	iterate each element  of the array one by one
+		if current element > max then
+			update max
+	end of the loop
+		you will get maximum value stored in the max variable.
+
+
+	The output is not about the largest number of the array
+	if there are many numbers which are result of product of any 2 numbers
+
+	IN CLoud lab
+		http://10.10.16.125:8929/b76user01/java
 
 
 
 
+in c, c++
+we can create a swap function that accepts parameters by reference
+	using pointers
+
+in java, all primitive type arguments are passed by value only
+all reference type arguments are passed by reference only
+	BUT WRAPPER classes have peculiar behavior
+
+	For 8 primitive data types, there are corresponding wrapper classes
+
+	byte	Byte
+	short	Short
+	int	Integer
+	long	Long
+	float	Float
+	double	Double
+	char	Character
+	boolean	Boolean
+
+these wrappers automatically unbox themselves
+
+	int i=20;
+	Integer var=i;		//here, autoboxing happened
+
+				//primitive to Wrapper conversion is automatic and hence called as auto boxing
+class Integer
+{
+	int i;		// an int is boxed inside Integer class. 
+}
 
 
+Integer x=20;			//20 is primitive, but it is auto boxed to Integer type
+int y=x;				//auto unboxed to int
 
+	swap(Integer i, Integer j)		they will automatically become int, int	and always by val not by ref
 
-
+-----------------------------------------------
+Run Length IV
+ 
+Write a program to find the length of the longest running sequence of even numbers in the given array. Also find the starting index of the longest running sequence of even numbers.
+ 
+Example :
+ 
+Consider the array ... { 2, 16, 15, 2, 6, 8, 10, 7, 22, 4 , 6}
+ 
+The 3 even number sequences in this array are {2, 16}, {2, 6, 8, 10} and {22, 4, 6}.
+The longest running even number sequence is {2, 6, 8, 10}
+The length of the longest running even number sequence is 4 and the starting index is 3.
+ 
+Note:
+The array indexing starts from 0.
+If there are multiple choices, select the choice where the starting index is minimum.
+ 
+Input and Output Format:
+ 
+The first line of the input consists of an integer n that corresponds to the number of elements in the array. The next 'n' lines of input consists of a single integer that correspond to the elements in the array.
+ 
+The first line of the output consists of the length of the longest running even number sequence and the second line of the output consists of the starting index of the longest running even number sequence.
+ 
+Sample Input :
+11
+2
+16
+15
+2
+6
+8
+10
+7
+22
+4
+6
+ 
+Sample Output :
+4
+3
+------------------------------------------------
 
 
 

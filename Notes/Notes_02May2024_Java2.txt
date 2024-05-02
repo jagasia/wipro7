@@ -1,0 +1,309 @@
+Hello all, I'm from RPS support team. Any issues with the session please ping in the chat box or drop a mail to ngasupport@rpsconsulting.in
+
+Day #5:
+Java day 2:
+-------------------
+8 primitive data types in java
+8 wrapper classes in java
+if
+if else
+if else if else
+switch case
+while loop
+do while loop
+for loop
+for each loop
+---------------------------------------------------
+Arrays
+	single dimensional arrays			int arr[]=new int[10];
+	multi-dimensional arrays 2 or more dimension	int arr[][][]=new int[10][5][7];
+
+Arrays.sort
+	sorts the elements of the array
+Arrays.toString()
+	returns the content of the array as a String
+		System.out.println(Arrays.toString(arr));		//will print the elements of the array
+
+
+What is an array?
+	Array is fixed length. So, any deletion of element does not save any memory.
+	Array is a collection of one or more elements in memory in contigeous memory locations.
+	since the array elements are in contigeous memory locations, insertion at a specific index, involves our effort to shift elements right
+	if you want the empty spaces to be at the end then deletion also involves our effort to shift elements left
+	array allows all elements to be same data type.	(every datastructure is homogenous. Not only array)
+
+
+	ArrayList a1=new ArrayList();		//non-generic collection		jdk 1.4 or earlier
+	a1.add(new Integer(10);	
+	a1.add("India");
+	a1.add(new Float(2.2f));
+	a1.add(new Date());
+
+		they think they are able to add different type of elements to an arraylist.	
+		BUT actually, 		ArrayList	=>	ArrayList<Object>
+		any class is actually a sub class of Object class
+		so, Integer, String, Float, Date all are cast into Object type		implicit casting.
+		So, the above array list holds only Object type hence it is homogenous.
+
+	There is nothing called heterogenous when it comes to collection.
+
+Access
+	you should learn to visit every element of an array using:
+		for loop		with index
+		for each loop	without index
+		
+	arrays have an advantage, that they have index.		index is used to access any element of an array directly.
+Insert
+	when you put an element at specific index, if already there is a value in that index, it is LOST.
+	so, if you do not want to loose the element while inserting, then what will you do?
+		insert should shift the elements to right.		(except that if you add element at end where already nothing was there)
+Delete
+	deleting an element does not make any change in the size of the array. But if you want empty spaces to the right, then shift while delete
+Update
+	no much effort			arr[3]=50;		whatever already was there in index 3 is overwritten by 50
+Reverse	
+	if you traverse from last index to 0 		(reverse)		arr.length-1 is the last index
+	Arrays.sort	with an argument to reverse an array
+Slice
+	we can slice an array using couple of index and store
+	the PORTION of the array in another array
+
+
+
+
+int arr[]=new int[10];
+//initially all elements will be 0
+[0,0,0,0,0,0,0,0,0,0]
+[1,2,3,4,5,6,7,8,9,10]
+
+
+when you practise arrays, practise
+	single dimension 
+	multi-dimension
+
+--------------------
+Last Character
+
+Rahul was tired after studying for so long , so he thought to play a small game with the words from his book . He opens a random page and selects a random word from it , and also  chooses the last digit of that page number n . Given an array of characters,Write a program to help Rahul find the last character that occurs n(last digit of the page number) times in the array . If no such character exists,then print -1.
+
+Input Format:
+First input is an integer that denotes the size of the array.
+Second line consists of  series of characters  seperated by a space that denotes the array values.
+Third input is an integer that denotes the n value.
+
+Output Format:
+Output is a character that denotes the last character which occurs n times.
+
+Sample Input 1:
+8
+a a b c n s d n
+2
+
+Sample Output 1:
+n
+
+Explanation:
+    In the given array 'a' and 'n' occurs 2 times which is equal to the n value . Even though 'a' occurs twice ,'n' is the one that occurs last.    
+Sample Input 2:
+5
+a b c d e
+3
+
+Sample Output 2:
+-1 
+
+
+
+c:\users\administrator\training\assigments
+	this  is the folder sync with git lab
+
+but you are doing project in eclipse
+	eclipse stores your projects in 
+		c:\users\administrator\training\java_programs
+
+if your assignment is done as separate project, then copy that project folder to assignment folder
+	then push to git
+
+if your assignment is done as 1 class inside a project
+	each class is one assignment then copy those java files to your assignment folder
+
+------------------------------------------
+120,150,180
+
+boolean isFirst=true;
+
+	if(!isFirst)
+		System.out.print(",");			//print		not println
+after first loop iteration, 
+	isFirst=false;
+
+-----------------------------
+If order of the output does not matter,
+	you can sort the array
+	and take first n elements. 	that is the answer
+
+5
+4 8 2 5 9
+3
+
+after sorting the array
+	2 4 5 8 9
+
+first 3 numbers?
+	2 4 5
+
+4 2 5
+-----------------------------------------------
+My suggestion:
+	take a copy of the input array
+	how?
+		use Arrays.slice method to take a copy	or Arrays.clone
+		sort the copied array
+		now, take the first N numbers	(store it in temp array)
+	 
+		iterate the original array and check if each element if it is found in the temp array or not
+		then print
+problem is solved
+
+--------------------------------------------
+String
+--------
+what is a String in java?
+is it a character array?
+no. String is a class and we can create an object of String.
+what is this?
+	"hello"
+		this is called as String literal
+	actually, this "hello" is also an object of String class.
+
+int i=20;			//20 is an int value
+
+String str="hello";		//is this peculiar?
+String str1=new String("hello");	//this is normal. Then what about previous line?
+
+"hello" is an object
+str="hello";		"hello" is not stored in str. 	"hello" is there in a memory. Its reference is stored in str
+
+str is a reference type variable, that do not hold the value.
+
+int i=20;			//20 is the value you find in i
+
+
+String str="hello";
+char []arr=str.toCharArray();
+
+	str.charAt(0)		returns the first character
+	str.charAt(1)		second character
+in this, way, you can access every character of a String in a loop
+
+	str.length()		this method returns the length of the string
+
+	arr.length
+	str.length()
+
+
+	==	vs	equals method
+
+	i) == operator is overloaded.
+		it behaves differently
+		x == y			(x and y are the operands)
+		if the operands are value types, then == compares their values
+		if the operands are ref types, then == compare their references
+
+
+
+
+new operator is used to create a new memory
+
+String str1="hello";		//i have not created any memory. "hello" is there in memory
+String str2="hello";		//i have not created any memory. "hello" is there
+
+both str1 and str2 are referring to same memory only.
+
+String str1=new String("hello");		//a new memory is created now
+String str2=new String("hello");		//a new memory is created now
+
+str1 and str2 are referring to 2 different memory locations.
+
+System.out.println(str1==str2);		//false
+	== compares the references and hence false
+System.out.println(str1.equals(str2);	//true
+	equals method always checks values
+
+
+
+	whenever you want to check if 2 strings are equal, USE ONLY "equals" method
+	DON'T USE == for strings
+
+	String is immutable.
+		unchangeable
+
+	String str="hello";		
+	str="world";		//str is changed or not?
+
+	Employee e1=new Employee();
+	Employee e2=new Employee();
+		so far we have created 2 objects
+	Employee e3=e2;
+		so far we have created 2 objects		e3 is referring to existing memory
+	Employee e4=e3;
+		
+
+	String str="hello";
+	str="world";	
+			"hello" is an object in memory, referred by str
+			"world" is another object in memory, referred by str
+
+	in both cases, str is a reference variable, whose reference is changed.
+	
+	"This is the fact"
+		in the above string, can you change "is" into "was"?
+	String str="This is the fact";
+	str="This was the fact";		// now did we change "is" ito "was?	NO
+					//What we did? entire string reference has jumped into another
+
+	we have not changed the value, but we jumped from one memory to another.
+
+	because, String class does not provide the methods to replace/ delete/ insert
+		str.replaceAll("is","was");		//THIS IS NOT POSSIBLE IN STRING CLASS
+
+	
+StringBuilder
+StringBuffer	(synchronized)		multiple threads cannot access this object at a time. allowed 1by 1
+	provide
+		append
+		insert
+		replace
+		delete
+	and all methods to edit the content instead of completely assigning a new String
+
+
+Task:
+	Accept a string input and check if it is a palindrome or not?
+
+input:
+	Malayalam
+output:
+	Yes it is palindrome
+
+
+	malayalaM	is the reverse of Malayalam
+
+
+String
+	equals()
+	equalsIgnoreCase()
+	toLowerCase
+	toUpperCase
+	trim			removes spaces in front and at the end. Not in between
+		"    hello world       "		becomes		"hello world"
+
+	
+Activity:
+	identify as many methods in
+		String
+		StringBuilder
+
+
+Task:
+	Accept 2 strings and check if they are anagrams?
