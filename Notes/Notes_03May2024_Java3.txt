@@ -1,0 +1,258 @@
+Day #6
+Java day #3
+----------------
+String class
+StringBuilder and StringBuffer classes
+
+Task:
+-------
+I need your suggestions/algorithms to solve the below problem.
+	
+Input:
+	You are selected for the interview, to know more about the details, you may call 9898989898 or write us at abcd@efgh.com
+
+Output:
+	9898989898
+	abcd@efgh.com
+
+How do you extract only the  phone numbers and email addresses in the message.
+
+Task:
+-------
+Accept an email  address from the user and check if it is a valid email address or not as per the format.
+
+
+The above 2 tasks can be simplified by using 
+	Regular Expressions
+
+
+Regular expression symbols:
+	a pattern in regex will have the <<symbol>><<multiplicity>>
+
+	if you do not mention the multiplicity then it will be considered as 1
+
+	.	(dot symbol)		means anything	it can be character, symbol, number, space or anything
+	\d	in java, you have to use \\ for one \
+		\d means digit		0-9 is the possible value
+	\D	non digit
+	
+	[]	square brackets are used to specify the list of characters and range from which 1 character can appear
+	()	normal brackets are used to group a pattern and specify mulitplicity and also use | OR operator
+	
+multiplicity
+	+	one or more
+	*	zero or more
+	?	optional	but 	0 or 1
+multiplicity can also be mentioned using
+	{1}	only once
+	{3}	3 times		3 and only 3 times
+	{1,3}	1 to 3 times	min 1 and max 3
+	{1,}	atleast once	max? any		similar to + symbol
+	{,3}	maximum 3	min? any
+
+ex:
+	\\d{3}		means 3 digits
+	[0-9]{3}		means 3 digits
+	[a-z]{1,5}		minimum 1 and maximum 5 lower case alphabet
+	[0-9A-Za-z]	number or lower or upper case character
+	[aeiou]		any 1 vowel is allowed
+	[aeiou]{3}		3 vowels allowed
+	[.]		usually . is a symbol that means anything. But inside the [] a . means a character called .
+
+	|		OR operator
+
+String class provides a method to check if the string itself matches a pattern or not
+	String str="9898989898";
+	str.matches("\\d{10}");		//returns true
+
+
+checking if the string matches a pattern or not
+		str.matches()
+
+but how do you extract the portions of the string that matches a pattern?
+
+Ex:
+extract all the mobile numbers in a string message.
+
+TasK:
+download the word document from
+	https://github.com/jagasia/wipro2/blob/jag/Java/Java_Mock_11%20(2).docx
+
+and do the regex challenge (requirement 3)
+
+Requirement 3:
+   In this requirement, you need to validate the website and the mobile number of the note.
+
+a)Create a Class Main with the following static methods:
+Method Website	Description
+static Boolean validateWebsite(String website)	Validate the website based on the rules given below. Returns true ifwebsite is valid else return false
+static Boolean validateMobile(String mobileNo)	Validate the mobile number based on the rules given below. Returnstrue if mobileNo is valid else returnfalse
+
+b) While validating website follow the below rules,
+   
+http://www.iit.edu.in
+iit - domain name
+edu - sTLD
+in - ccTLD
+
+1. The website should start http:// or https:// protocol
+2. The website may or may not contain " www." after the protocol.
+3. The domain name should contain only alphabets, either uppercase or lowercase and should not contain any special characters.
+4. sTLD (sponsored top-level domain) should contain 2 to 6 characters
+5. ccTLD(country code top-level domain) may or may not be present in a website and it should contain 2 to 6 characters
+
+c) While validating mobile number follow the below rules,
+
+1.The mobile number should have prefix as " +91 "(international calling code).
+2.The mobile number should have 10 numbers [0-9].
+
+Note: Print "Website is valid" if website is valid else print "Website is invalid". Print "Mobile number is valid" if mobile number is valid else print "Mobile number is invalid".
+            All the above print statements are present in the main method.
+
+
+-----------------------------
+OOP
+	Object Oriented Programming
+
+Object
+	is the instance of a class.
+
+You need to create a class that defines the objects's
+	properties 
+	methods
+
+algorithms = method
+datastructures = properties
+
+data and logic
+
+A class wraps these algo & ds in a box.
+
+When, How, Why, Where
+	to create a class
+
+A class can be created for a Program to run.
+	without a class, a program cannot run.
+	because, main method itself is part of a class
+
+public class Shivam
+{
+	//i see 0 constructors here. in my source code, there is no constructor. 
+	//during compilation, the compiler creates a default constructor.
+	//a default constructor do not have any argument	0-arg cons
+	
+	public Shivam(int i)
+	{}
+	//now, in my source code, i see 1 constructor with argument
+	//lets compile
+	//now, compiler understands that you created a constructor, so compiler does not create any cons
+}
+
+
+A class can be created as an user defined Type
+	composite type
+
+	if i want to store a number in a variable,
+		int
+		byte
+		short
+		long
+	if i want to store a sentence in a variable
+		StringBuilder
+		String
+		StringBuffer
+	if i want to store today's date
+		java.util.Date
+		java.sql.Date
+		java.time.LocalDate
+	if i want to store information about an Employee??????
+		there is no pre defined type for that
+		so i will create a class Employee and
+		then create objects of Employee class
+
+Guidelines for creating a class:
+	1) naming convention for class
+		it should be a noun
+		starts in capital letter and follows PascalCase
+		public class must be stored in the separte file whose name is same as class name
+		private class can be part of another class. This is called as inner class
+
+	2) a class can contain data members which must be non-public
+		private data members are good
+		protected, default also fine.	But
+		public is not good.		But in some exam system, they may use public for convenience.
+
+	3) private / non public data members shall be allowed to access using public
+		getters
+		setters
+
+	ex:
+		public class  Employee
+		{
+			private int id;
+
+			public void setId(int id)	
+			{
+				this.id=id;
+			}
+			public int getId()
+			{
+				return id;
+			}
+		}
+
+
+	4) a class will always have a default constructor (created by compiler) when we do not create any constructor.
+		if you create a constructor with argument, then kindly create a constructor without argument also.
+
+		what is a constructor?
+			a constructor is used to create and object of a class
+		
+
+	5) toString() method
+		Object class has toString() method.
+		Any class I create will  have super class Object
+		so, toString is also available for my Employee class also
+
+		the default behavior of Object class toString must be overridden in our class
+
+	6) if you create 2 employees and want to check if they are equal or not
+		Employee e1=new Employee();
+		e1.setId(20);
+
+		Employee e2=new Employee();
+		e2.setId(20);
+
+		System.out.println(e1.equals(e2));		//what is this?
+
+		equals method is defined in Object class
+		so, we can use this method in any object
+		
+		Override the equals method so that, you define the logic to determine, if 2 objects are equal or not
+
+
+1) class must have private data members
+2) constructor without argument, when you create constructor with argument
+3) public getters and setters for accessing private data members
+4) toString method to display content of the object of this class
+5) equals method to compare 2 objects of this class
+
+
+TasK:
+-------
+University - Requirement 1
+	https://github.com/jagasia/wipro2/blob/jag/Java/Java_Mock_11.docx
+
+
+
+
+.
+
+
+
+
+
+
+
+
+
