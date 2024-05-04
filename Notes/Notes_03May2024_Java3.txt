@@ -245,14 +245,201 @@ University - Requirement 1
 
 
 
+OOP
+	Inheritance
+	Encapsulation
+	Abstraction
+	Polymorphism
 
+encapsulate
+	"en" means positive
+	wrap	the data and methods inside a class
+	boxing
+	covering
+	wrapping
+		in that way, we are also hiding some members of the class
+
+	a class have
+		non public data members	(hiding)
+		public getters and setters	(projecting/ showcasing)		abstraction	
+
+
+	private		only within the class		(objects of other classes cannot access)	
+	default		only within the package	(objects of classes within the same package can access default members)
+	protected		default + sub classes		(sub classes of any package can access protected member + default)
+	public		anywhere
+
+
+
+
+	public > protected > default > private				private is the lowest access
+		
 .
+-------------------------------------------------------
+Inheritance:
+---------------
+	instead of creating a class from the scratch 
+		we can derive it from an existing class.
+	in java, a class cannot be created from the scratch.
+		public class College
+		{
+			//this is actually derived from Object class
+		}
+
+	class Furniture
+	{
+		String name;
+		String color;
+	}
+
+	class Chair extends Furniture
+	{
+		int noOfLegs;
+		//the chair has how many properties???????		name, color and noOfLegs
+	}
+
+	class Table extends Furniture
+	{
+		int noOfDraws;
+	}
 
 
 
+	class Triangle
+	{
+		public void calculateArea()
+		{
+			System.out.println("1/2 * b *h");
+		}
+	}
+
+	class Rectangle
+	{
+		public void calculateArea()
+		{
+			System.out.println("l*b");
+		}
+	}	
+
+	class Circle
+	{
+		public void calculateArea()
+		{
+			System.out.println("22/7 * r * r");
+		}
+	}
 
 
+	sub class should be "a kind of " super class
 
 
+1: Triangle
+2: Rectangle
+3: Circle
+4: Exit
 
+
+What is abstract class and abstract method?
+why it is required?
+
+what is overloading?
+what is overriding?
+
+class B extends A
+{
+	public void displayTable()
+	{
+	//	A a=new A();
+	//	a.displayTable();		//utilization
+		super.displayTable();		//super class A 	displayTable() is called by sub class
+	}
+}
+
+1) Kind of
+2) Part of		(has a)
+3) is a		object vs class
+4) utilization
+
+
+class Engine
+{
+}
+class Car
+{
+	Engine e;		//car has engine
+}
+
+class Car extends Engine
+{
+	//this does not reflect real world scenario			car is a kind of engine NO NO NO
+
+}
+THE ABOVE MAY WORK. BUT DOES NOT REFLECT REAL WORLD
+
+1) overloading
+	when multiple methods have same name, then if their signatures are different, this is allowed
+	and names as overloading
+
+	int sum(int i, int j)
+	{
+		return i+j;
+	}
+
+
+	int sum(float i, float j)
+	{
+		return i+j;
+	}
+	
+	String sum(String i, String j)
+	{
+		return i+j;
+	}
+
+		the sum method is overloaded
+
+Overloading is an example for static Polymorphism		early binding
+	poly = many
+	morph	=	face	
+
+	sum(2,3)			=	5		
+	sum("Rama","Krishna")	=	RamaKrishna
+
+	
+these polymorphism are visible before compilation itself
+
+or during compilation
+
+overriding exihibits a dynamic polymorphism
+
+Rules for overloading
+	signature must be different
+		what is a signature?
+			number  of arguments
+			type of arguments
+			order of the type of arguments
+			
+		return type does not matter (it may be same or different)
+Rules for overriding
+	sub class method name is same as a method in super class
+	sub class method cannot reduce the visibility
+	sub class method must have same signature as super class 
+	additional exceptions cannot be declared as thrown in sub class method
+		throws ArithmeticException, IOException
+
+
+a class => file
+a package => directory/ folder
+
+package name:
+	com/org
+
+com.wipro.hrms.entity
+
+
+org.apache.tomcat
+
+
+default access specifier		(no access specifier)
+	is restricted to all access only within the package
 
