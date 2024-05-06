@@ -1,21 +1,17 @@
-interface Person
-{
+interface Person {
 	void speak();
-	static void walk()
-	{
-		
+
+	static void walk() {
+
 	}
 }
 
-class Student
-{
-	public void talk()
-	{
+class Student {
+	public void talk() {
 		System.out.println("Student talks");
 	}
-	
-	public static void run()
-	{
+
+	public static void run() {
 		System.out.println("Student runs");
 	}
 }
@@ -23,12 +19,12 @@ class Student
 public class App2 {
 
 	public static void main(String[] args) {
-		Person raja;		//interface
-		Student suresh=new Student();
-		raja=suresh::talk;
-		raja=Student::run;
+		Person raja; // interface
+		Student suresh = new Student();
+		raja = suresh::talk;
+		raja = Student::run;
 		raja.speak();
-		
+
 	}
 
 }

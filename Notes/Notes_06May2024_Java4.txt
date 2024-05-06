@@ -1,0 +1,269 @@
+Day #7
+Java day #4
+----------------
+Exception Handling
+--------------------------
+What is exception?
+	you think exception is error?
+	logical error?
+	Exception vs exemption
+	NO.
+
+Exception is not error. it is not logical error.
+Exception is any abnormal event that might occur during the execution of the program.
+	
+	
+If you create a method and somebody else is going to call the method.
+
+A is creating a method.		
+B is calling the method.
+
+
+A understands that the denominator cannot be 8. If it is 8, what to do? 
+A, cannot decide that. So A will throw exception.
+
+B will call the method and gets exception. 
+B is allowed to  handle the exception.
+
+class Employee
+{
+	int id;		//cannot be negative
+	String name;	//atleast 1 character and no numbers
+	Date dateOfBirth;	//cannot be future date
+	double salary;	//cannot be negative
+}
+
+Exceptions are significant, because, if the exception is not handled, the program terminates abruptly.
+
+Java language has lot of pre defined exception classes. 
+
+Object
+	Throwable
+		Error
+		Exception
+
+
+Error
+	we cannot handle Errors. they are always unhandled
+	program have to terminate when error occurs.
+
+Exception
+	is the super class for all exception classes like
+		RuntimeException
+		ArrayIndexOutOfBoundsException
+		NullPointerException
+		InvalidCastException
+		IOException
+		ArithmeticException
+		InputMismatchException
+		NumberFormatException
+		ClassNotFoundException
+		InterruptedException
+
+
+These classes are defined
+	all these classes are derived from Exception class
+
+
+
+
+public class ArithmeticException extends RuntimeException
+public class IOException extends Exception 
+
+
+A class that is derived from Exception
+	is a checked Exception
+
+A class that is derived from RuntimeException
+	is an unchecked Exception
+
+What are checked exceptions?
+	are checked by the compiler.
+	are very serious, that the method that throws these exceptions, must 
+		i) handle the exception
+		ii) declare that these are thrown
+
+1) try-catch-finally		blocks are used to handle the exceptions
+2) throws			clause is used to declare that the method throws these exceptions
+
+Any class derived from Exception or its sub class (other than RuntimeException) are checked exceptions
+
+
+
+
+public class Bank {
+	
+	public void withdraw(int amount) throws Exception
+	{
+		if(amount>30000)
+		{
+			//we create this code. we know that amount >30k is invalid
+			//but in that case, what to do? is not our role.
+			throw new Exception("amount is invalid");
+		}
+	}
+}
+
+in above code, we throw a checked exception so compiler does not compile our code, untile we
+	handle it (or)
+	declare with throws
+-------------------------------
+
+
+public class Bank {
+	
+	public void withdraw(int amount)   
+	{
+		if(amount>30000)
+		{
+			//we create this code. we know that amount >30k is invalid
+			//but in that case, what to do? is not our role.
+			throw new NumberFormatException("amount is invalid");
+		}else
+		{
+			System.out.println("Remember to collect the cash");
+		}
+	}
+}
+
+
+
+public class App {
+
+	public static void main(String[] args){
+		Bank bank=new Bank();
+		bank.withdraw(31000);
+		System.out.println("Continues");
+	}
+
+}
+
+
+
+Above code
+	NumberFormatException is sub class of RuntimeException hence
+	it is unchecked by the compiler
+	we may handle or continue to run without handling exception
+
+
+Finally
+	block is at the end of try/ catch
+	there can be try-finally		without any catch
+	try can be followed by catch/ finally or catch finally
+	finally is executed even if exception occurred or not, handled or not, once try is executed, finally is executed at the end
+
+
+Activity:
+------------
+learn to throw exceptions
+	checked
+	unchecked
+	throws to declare checked exceptions
+	handle exceptions using
+		try-catch-finally
+		nested try	and also write throw inside catch		re-throw
+	create user defined exceptions of types 	checked and unchecked exceptions
+
+-----------------------------------------------------
+Collections:
+------------------
+Can you list the limitations of arrays?
+-------------------------------------------------
+	fixed length
+	contigeous memory locations
+
+
+Array and ArrayList
+ArrayList alist	=>		ArrayList<Object> alist;
+
+You need to know the length  of array to create. this is very big drawback.
+
+
+
+
+
+public class App2 {
+
+	private static int[] findPrimeInRange(int start, int end)
+	{
+		int arr[]=new int[Integer.MAX_VALUE];
+		//write your code here. We can store only 100 numbers  in arr. But we do not know how many prime
+		//numbers are available between start and end
+		return arr;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+
+
+
+
+------------------
+int arr[]=new int[10];
+ArrayList<int>				//NOT POSSIBLE
+ArrayList<Integer> list=new ArrayList<>();		//POSSIBLE
+
+--------------------
+Arrays can contain elements of primitive type also.
+Collection cannot have primitive types but we can use wrapper classes if required.
+Java collections
+	java.util package
+provides
+
+List and Set type of collections
+
+List and Set are interfaces,
+	which are implemented by lot of classes
+
+List
+	ArrayList		(modern)
+	LinkedList		(modern)
+	Vector	(legacy)
+	Stack	(legacy)
+
+
+Set
+	HashSet
+	TreeSet
+	LinkedHashSet
+
+the above are collection classes
+
+Map	is an application of collection
+	HashMap
+	Hashtable
+	TreeMap
+	LinkedHashMap
+
+
+List
+	allows duplicates
+	allows any number of null 
+	maintains the elements in the same order of addition
+	allows sorting the elements using
+		Collections.sort method
+	ListIterator is supported by List category classes only. ListIterator can traverse in both directions
+	provides index to access any element directly using  index	
+
+Set
+	the order of elements in a set is based on the type of the set
+	rejects duplicates.		
+	1 null is allowed. another null is considered as duplicate
+	does not allow us to sort later	(later means, after adding elements)
+		cannot use Collections.sort method on set
+	supports only Iterator and not ListIterator and hence, we can traverse in forward direction only
+	no index and hence, we cannot access any element directly. But use to traverse from left to right and find
+
+	HashSet		order of the elements is based on the hashCode method
+	TreeSet		order of the elements is sorted based on Comparable/Comparator
+	LinkedHashSet	order of the elements is same as the insertion order
+
+
+	
+
+
