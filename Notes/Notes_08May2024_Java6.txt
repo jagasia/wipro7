@@ -1,0 +1,192 @@
+Day #8
+Java day #6
+----------------
+How will you get year from a date?
+	java.util.Date
+
+Date dt=new Date();
+//		System.out.println(dt.getYear()+1900);
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy");
+		System.out.println(sdf.format(dt));
+		
+sdf.format returns String which can be converted into int		Integer.parseInt(sdf.format(dt));
+
+Date dt=new Date();		//constructor of Date fills system date and time in dt
+int year=dt.getYear();		//you are expecting 2024. But what you actually get is 124
+			it is the difference between 2024 and 1900
+LocalDate
+	you can find the difference between 2 local dates, accurately
+
+	Period p=	Period.between(ld1,ld2);
+	no of years, no of months, no of days
+
+
+Task:
+Find the weekday from a given date.
+
+Sample input:
+	08-May-2024
+Sample output:
+	Wed
+	Wednesday
+
+		Date dt=new Date();
+		SimpleDateFormat sdf=new SimpleDateFormat("EEEE");
+		System.out.println(sdf.format(dt));
+
+
+in a worst case you can use substring method of string
+
+Demo:
+Mock-29 file
+Req #6
+
+This uses Map
+----------------------------
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Mobile {
+	private String referenceId;
+	private String modelName;
+	private Double displaySize;
+	private Double price;
+	private Date launchedDate;
+
+	public Mobile() {
+	}
+
+	public Mobile(String referenceId, String modelName, Double displaySize, Double price, Date launchedDate) {
+		super();
+		this.referenceId = referenceId;
+		this.modelName = modelName;
+		this.displaySize = displaySize;
+		this.price = price;
+		this.launchedDate = launchedDate;
+	}
+
+	public String getReferenceId() {
+		return referenceId;
+	}
+
+	public void setReferenceId(String referenceId) {
+		this.referenceId = referenceId;
+	}
+
+	public String getModelName() {
+		return modelName;
+	}
+
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
+	}
+
+	public Double getDisplaySize() {
+		return displaySize;
+	}
+
+	public void setDisplaySize(Double displaySize) {
+		this.displaySize = displaySize;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public Date getLaunchedDate() {
+		return launchedDate;
+	}
+
+	public void setLaunchedDate(Date launchedDate) {
+		this.launchedDate = launchedDate;
+	}
+
+	static Mobile createMobile(String detail) throws ParseException {
+		String[] arr = detail.split(",");
+//		#SM 48 DUO-004,J7 Duo,5.6,17000,23-09-2016
+		Mobile mobile = new Mobile();
+		mobile.setReferenceId(arr[0]);
+		mobile.setModelName(arr[1]);
+		mobile.setDisplaySize(Double.valueOf(arr[2]));
+		mobile.setPrice(Double.valueOf(arr[3]));
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		mobile.setLaunchedDate(sdf.parse(arr[4]));
+		return mobile;
+	}
+
+	public static Map<Date, Integer> yearWiseCount(List<Mobile> mobileList) throws ParseException {
+		Map<Date, Integer> result = new TreeMap<>();
+		for (Mobile m : mobileList) {
+//			int year = m.getLaunchedDate().getYear() + 1900;
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy");
+			String yearStr=sdf.format(m.getLaunchedDate());
+			Date dt=sdf.parse(yearStr);
+			Integer count = result.getOrDefault(dt,0);
+			count++;
+			result.put(dt, count);
+		}
+		return result;
+	}
+
+}
+
+
+
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) throws ParseException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number of mobiles");
+		int n=sc.nextInt();
+		List<Mobile> mobileList=new ArrayList<>();
+		for(int i=0;i<n;i++)
+		{
+			String detail=sc.nextLine();
+			if(detail.equals(""))
+			{
+				detail=sc.nextLine();
+			}
+			Mobile mobile = Mobile.createMobile(detail);
+			mobileList.add(mobile);
+		}
+		
+		Map<Date, Integer> result = Mobile.yearWiseCount(mobileList);
+		System.out.format("%-15s %s\n","Year","No. of Mobiles");
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy");
+		for(Entry<Date, Integer> e:result.entrySet())
+		{
+			System.out.format("%-15s %s\n",sdf.format(e.getKey()),e.getValue());
+		}
+	}
+
+}
+
+
+
+--------------------------------------------------
+Task:
+Mock 11
+Req # 6
+
+Location wise college count
+Lot of test cases are there.
+Check if your code passes all the test cases.
+

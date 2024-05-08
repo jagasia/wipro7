@@ -1,0 +1,606 @@
+Day #7
+Java day #5
+----------------
+Sorting a list
+	How can we sort a list?
+		Collections.sort()
+
+How can wew sort a list of objects, if we cannot compare 2 objects?
+
+a,b,c,d,e,f
+a<b<c
+
+as per ascii value.
+
+
+
+public class Employee implements Comparable<Employee>
+{
+	private Integer id;
+	private String name;
+	private String department;
+	private Integer salary;
+	
+	public Employee()
+	{
+		
+	}
+
+	public Employee(Integer id, String name, String department, Integer salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.department = department;
+		this.salary = salary;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public Integer getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Integer salary) {
+		this.salary = salary;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", department=" + department + ", salary=" + salary + "]";
+	}
+
+	@Override
+	public int compareTo(Employee o) {
+		return this.getId().compareTo(o.getId());		
+	}
+	
+}
+
+
+Comparator is very important
+	for ex, 	How do you sort Integers in descending order
+
+class Integer implements Comparable<Integer>
+	since integer is not our class, we cannot go and modify the login in compareTo method
+
+we can create comparators
+
+
+
+
+
+
+if id is primitive type, (int) then we cannot use compareTo method
+	return this.getId()-o.getId();
+
+String, Date, etc we cannot use - symbol. 	Use compareTo method
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class App {
+
+	public static void main(String[] args) {
+		List<Employee> employees=new ArrayList<>();
+		employees.add(new Employee(12, "Alex", "ECE", 100000));
+		employees.add(new Employee(10, "John", "EEE", 100000));
+		employees.add(new Employee(11, "Zaheer", "ECE", 100000));
+		employees.add(new Employee(22, "Babu", "EEE", 100000));
+		employees.add(new Employee(18, "Kumar", "ECE", 100000));
+		employees.add(new Employee(15, "Chandru", "ECE", 100000));
+		employees.add(new Employee(16, "Muruga", "CSE", 100000));
+		employees.add(new Employee(14, "Prasad", "ECE", 100000));
+		employees.add(new Employee(21, "Sathish", "Mech", 100000));
+		employees.add(new Employee(13, "Dinesh", "IT", 100000));
+		
+		//tell me how to sort these employees by id?
+		Collections.sort(employees);
+		
+		for(Employee e : employees)
+		{
+			System.out.println(e);
+		}
+	}
+
+}
+
+
+How to sort employees by Id in descending order
+
+	a-b	=	1
+	b-a	=	-1
+
+1 means first is bigger
+-1 means second is bigger
+so based on that order will reverse
+
+	@Override
+	public int compareTo(Employee o) {
+		return o.getId().compareTo(this.getId());		
+	}
+
+this-o	is asc
+o-this	is desc
+
+
+1: Sort by Id
+2: Sort by Name
+3: Sort by Department
+4: Sort by Salary
+
+when we need to sort by different fields,
+we can create lot of comparator classes.
+
+University: Requirement 5
+------------------------------------
+App.java is shared in the chat
+
+Completed by
+	Gaikwad
+	Dheeraj
+	Chanduseru
+	Chavareshivam
+	Virtsourabh
+	Shwetarh4
+	
+	Sk
+	Shrirampatil
+	Salonisongara
+	Siddalamadhu
+
+Time till 10:45 then take a break and come back at 11:00
+---------------------------------------------------------------------------
+
+Set rejects duplicates.
+
+HashSet<Employee>
+	hash set is not able to identify duplicates
+
+	2 colleges are same if ............................
+
+	
+HashSet
+	uses
+		equals()
+		hashCode()
+			methods to identify duplicates and maintain the order also
+
+
+
+
+
+import java.util.Objects;
+
+public class Employee
+{
+	private Integer id;
+	private String name;
+	private String department;
+	private Integer salary;
+	
+	public Employee()
+	{
+		
+	}
+
+	public Employee(Integer id, String name, String department, Integer salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.department = department;
+		this.salary = salary;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public Integer getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Integer salary) {
+		this.salary = salary;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", department=" + department + ", salary=" + salary + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return id;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Employee other = (Employee) obj;
+		return this.getId().equals(other.getId());
+	}
+
+	
+}
+
+
+
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class App2 {
+
+	public static void main(String[] args) {
+		Set<Employee> employees=new HashSet<>();
+		employees.add(new Employee(12, "Alex", "ECE", 100000));
+		employees.add(new Employee(10, "John", "EEE", 100000));
+		employees.add(new Employee(11, "Zaheer", "ECE", 100000));
+		employees.add(new Employee(10, "John", "EEE", 100000));
+		employees.add(new Employee(18, "Kumar", "ECE", 100000));
+		employees.add(new Employee(14, "John", "EEE", 100000));
+		employees.add(new Employee(16, "Muruga", "CSE", 100000));
+		employees.add(new Employee(10, "John", "EEE", 100000));
+		employees.add(new Employee(19, "John", "EEE", 100000));
+		employees.add(new Employee(17, "Dinesh", "IT", 100000));
+		
+		for(Employee e: employees)
+		{
+			System.out.println(e);
+		}
+
+	}
+
+}
+
+
+---------------------
+TreeSet
+	how tree set is different from hash set?
+
+	TreeSet uses Comparable or Comparator to sort the elements
+	while adding the elements itself they are added in positions to maintain them in sorted manner
+
+	Set never allows sorting later.
+
+
+TreeSet<Employee> empSet=new TreeSet<>();
+	you cannot add employee objects if Employe does not implement Comparable
+
+But, we can use Comparator (if employee class does not implement Comparable)
+
+TreeSet<Employee> empSet=new TreeSet<>(new EmployeeComparator());
+
+only in the constructor, we can use comparator. Later you cannot change the order.
+	you may convert the set into list and then use Collections.sort method
+
+how to convert set into list and vice versa?
+	using their constructors
+
+
+	ArrayList<Integer> list=new ArrayList<>();
+	HashSet<Integer> set1=new HashSet<>(list);	//passing list to cons, we got a Set (duplicates are removed)
+	LinkedHashSet<Integer> set2=new LinkedHashSet<>(list);	//removed duplicates and order is same as list
+	ArrayList<Integer> result=new ArrayList<>(set2);		//set => list
+
+
+	
+
+Task:
+Create a TreeSet of your own type and add elements
+observe that if comparable or comparator is not used, you are not able to add elements to the tree.
+
+
+
+Set<Employee> employees=new TreeSet<>();
+employees.add(new Employee(12, "Alex", "ECE", 100000));
+employees.add(new Employee(10, "John", "EEE", 100000));
+employees.add(new Employee(11, "Zaheer", "ECE", 100000));
+employees.add(new Employee(22, "Babu", "EEE", 100000));
+employees.add(new Employee(18, "Kumar", "ECE", 100000));
+employees.add(new Employee(15, "Chandru", "ECE", 100000));
+employees.add(new Employee(16, "Muruga", "CSE", 100000));
+employees.add(new Employee(14, "Prasad", "ECE", 100000));
+employees.add(new Employee(21, "Sathish", "Mech", 100000));
+employees.add(new Employee(13, "Dinesh", "IT", 100000));
+
+
+--------------------------------------
+public class Employee implements Comparable<Employee>
+{
+	private Integer id;
+	private String name;
+	private String department;
+	private Integer salary;
+	
+	public Employee()
+	{
+		
+	}
+
+	public Employee(Integer id, String name, String department, Integer salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.department = department;
+		this.salary = salary;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public Integer getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Integer salary) {
+		this.salary = salary;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", department=" + department + ", salary=" + salary + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return id;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Employee other = (Employee) obj;
+		return this.getId().equals(other.getId());
+	}
+
+	@Override
+	public int compareTo(Employee o) {
+		return this.getId().compareTo(o.getId());
+	}
+
+	
+}
+
+
+import java.util.Comparator;
+
+public class EmployeeNameComparator implements Comparator<Employee>
+{
+
+	@Override
+	public int compare(Employee o1, Employee o2) {
+		return o1.getName().compareTo(o2.getName());
+	}
+
+}
+
+
+
+
+import java.util.Set;
+import java.util.TreeSet;
+
+class App3 {
+
+	public static void main(String[] args) {
+		Set<Employee> employees=new TreeSet<>(new EmployeeNameComparator());
+		employees.add(new Employee(12, "Alex", "ECE", 100000));
+		employees.add(new Employee(10, "John", "EEE", 100000));
+		employees.add(new Employee(11, "Zaheer", "ECE", 100000));
+		employees.add(new Employee(22, "Babu", "EEE", 100000));
+		employees.add(new Employee(18, "Kumar", "ECE", 100000));
+		employees.add(new Employee(15, "Chandru", "ECE", 100000));
+		employees.add(new Employee(16, "Muruga", "CSE", 100000));
+		employees.add(new Employee(14, "Prasad", "ECE", 100000));
+		employees.add(new Employee(21, "Sathish", "Mech", 100000));
+		employees.add(new Employee(13, "Dinesh", "IT", 100000));
+		
+		for(Employee e : employees)
+			System.out.println(e);
+	}
+
+}
+-----------------------------------------------
+List
+	Collections.sort
+Set
+	HashSet
+	TreeSet
+
+Map
+
+	Key - Value pair
+--------------------------------------------
+What is Lambda?
+	introduced in java version 8
+	is used to provide quick implementation of functional interface
+	
+	you should start from functional interface.
+
+What is functional interface?
+	an interface that contains only 1 abstract method is called as functional interface
+	ex:
+		Runnable		run
+		Comparable	compareTo
+		Comparator	compare method
+		ActionListener	actionPerformed
+		Callable		call
+		Predicate		test
+		Supplier		get
+		Consumer		accept		
+
+functional interface
+	1 abstract method
+marker interface
+	0 abstract method		ex: Serializable
+
+
+All of you know the comparator we used today
+
+
+
+
+		Collections.sort(employees, new EmployeeNameComparator());
+vs
+		Collections.sort(employees, (o1,o2)->o2.getName().compareTo(o1.getName()));
+
+
+instead of creating a class "EmployeeNameComparator" that implements Comparator<Employee> and override the compare Method,
+we have used lambda to provide the implementation here itself 	(sort method itself)
+
+
+LinkedList<String> list;
+
+But, you should be able to create LinkedList by coding.
+
+Challenge:
+--------------
+create a class "Node"
+	String value;
+	Node next;
+
+create a class "JLinkedList"
+	Node start;
+		addNode()
+		deleteNode(String value)
+		displayAllNodes()
+		
+----------------------------------------
+Map
+	2 dimensional data structure
+
+	Key	Value
+
+HashMap
+TreeMap
+LinkedHashMap
+
+do not have add method. Instead use "put" method
+
+void put(K,V)
+get(K)	returns the V
+
+every element in th emap
+
+
+
+import java.util.HashMap;
+
+public class App {
+
+	public static void main(String[] args) {
+		HashMap<Integer, String> map=new HashMap<>();
+		map.put(1, "India");
+		map.put(2, "Australia");
+		map.put(3, "Japan");
+		map.put(3, "China");
+		map.put(4, "Bangladesh");
+		
+		//how many entries are added in this map?
+		System.out.println(map);
+	}
+
+}
+
+
+{1=India, 2=Australia, 3=China, 4=Bangladesh}
+
+Key - Value
+	Key is a Set
+	means, 
+
+HashMap		the key is a HashSet
+TreeMap		the key is a TreeSet
+LinkedHashMap	the key is a LinkedHashSet
+
+
+Set does not allow duplicates. But, in a map, if a duplicate key is entered, the value is updated
+
+	put(k,v)	can be used to add a new entry or update an exisint entry also.
+
+
+Task:
+Accept input from the user as a String
+and display each character of the input and its occurrence.
+
+Sample input:
+	this is typed by me
+
+Sample output:
+t	2
+h	1
+i	2
+s	2
+	4
+y	2
+p	1
+e	2
+d	1
+b	1
+m	1
+
+
+
