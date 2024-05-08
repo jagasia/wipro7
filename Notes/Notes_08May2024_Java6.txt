@@ -190,3 +190,52 @@ Location wise college count
 Lot of test cases are there.
 Check if your code passes all the test cases.
 
+
+
+Scanner 
+	next()
+	nextInt()
+	nextFloat()
+	nextLong()
+
+all these methods differ from 1 method
+	nextLine()
+		why?	because, nextLine() captures input until a "new line" is found \n	<<Enter>>button
+		all other above methods	captures input until any delimiter
+			tab	space	newline		anything
+
+
+	another solution:
+		we can use 2 scanners
+		sc1	for all inputs	except nextLine()
+		sc2	for nextLine() alone
+
+
+		int n=sc1.nextInt();				5	<<enter>>
+		for(int i=0;i<n;i++)
+		{
+			String detail=sc2.nextLine();
+		//	sc.nextLine();			
+			if(detail.equals(""))
+			{
+				detail=sc2.nextLine();
+			}
+			Mobile mobile = Mobile.createMobile(detail);
+			mobileList.add(mobile);
+		}
+
+
+
+
+1,0,3,0,5,0,7,0,9,0
+
+only remove the 2nd element and return the list
+
+if you want to remove all alternative elements odd index elements
+then, store this list in an array
+then remove the elements at odd index 
+then convert this array to list
+
+
+
+
